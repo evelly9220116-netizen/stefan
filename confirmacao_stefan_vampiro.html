@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#130d18">
+<title>Baile das Sombras | Aniversário do Stefan</title>
+<style>
+:root{--bg:#100b14;--panel:#1c1420;--red:#a71935;--red2:#e13c54;--gold:#d9b77b;--cream:#f6e9dc;--muted:#c3b2bd}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--cream);font-family:Georgia,'Times New Roman',serif;background:radial-gradient(ellipse at 50% 0%,#44202d 0%,#1b101d 38%,#0c0910 78%);overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:radial-gradient(#fff 0.7px,transparent .7px);background-size:34px 34px}
+main{width:min(940px,calc(100% - 32px));margin:0 auto;padding:38px 0 28px;position:relative}
+header{text-align:center;padding:14px 12px 26px}
+.moon{width:76px;height:76px;border-radius:50%;margin:0 auto 16px;background:radial-gradient(circle at 35% 30%,#fff5d8,#d7b98b 58%,#9b744e);box-shadow:0 0 35px #d7b98b66;position:relative}
+.moon:after{content:"";position:absolute;width:67px;height:67px;border-radius:50%;background:#241421;left:21px;top:-8px}
+.eyebrow{font:700 11px Arial,sans-serif;letter-spacing:5px;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(38px,7vw,70px);line-height:.98;margin:13px 0 10px;font-weight:normal;text-shadow:0 4px 25px #000}
+h1 span{color:var(--red2);font-style:italic}
+.subtitle{font-size:17px;color:var(--muted);line-height:1.6;margin:0 auto;max-width:560px}
+.divider{display:flex;align-items:center;gap:14px;justify-content:center;color:var(--gold);margin:20px auto}
+.divider:before,.divider:after{content:"";height:1px;width:90px;background:linear-gradient(90deg,transparent,var(--gold))}
+.divider:after{transform:rotate(180deg)}
+.card{max-width:650px;margin:0 auto;background:linear-gradient(145deg,#251827ee,#17111bee);border:1px solid #8f536055;border-radius:18px;padding:clamp(22px,5vw,42px);box-shadow:0 24px 70px #0009,inset 0 1px #ffffff12;position:relative}
+.card:before,.card:after{content:"✦";position:absolute;color:var(--gold);font-size:18px;opacity:.75}
+.card:before{top:15px;left:18px}.card:after{bottom:15px;right:18px}
+.card h2{text-align:center;font-size:27px;font-weight:normal;margin:0 0 8px}
+.intro{text-align:center;color:var(--muted);font:14px/1.6 Arial,sans-serif;margin:0 0 27px}
+label{display:block;font:700 12px Arial,sans-serif;letter-spacing:1.3px;text-transform:uppercase;color:#e6cda9;margin:17px 0 8px}
+input,select{width:100%;padding:15px 14px;border:1px solid #694451;border-radius:9px;background:#100c14;color:#fff5ec;font:16px Arial,sans-serif;outline:none;transition:.2s}
+input:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px #d9b77b20}
+input::placeholder{color:#8d7c88}
+select{cursor:pointer}
+.hint{font:12px Arial,sans-serif;color:#a997a3;margin-top:7px;line-height:1.5}
+button{width:100%;border:0;border-radius:9px;margin-top:25px;padding:17px 18px;background:linear-gradient(110deg,#83172d,#c52c47);color:white;font:700 13px Arial,sans-serif;letter-spacing:1.8px;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 24px #9d183b44;transition:transform .2s,filter .2s}
+button:hover{transform:translateY(-2px);filter:brightness(1.13)}
+button:active{transform:translateY(0)}
+.footnote{text-align:center;color:#a995a2;font:12px/1.6 Arial,sans-serif;margin:17px 0 0}
+footer{text-align:center;padding:27px 10px 0;color:#9b8996;font:12px Arial,sans-serif;line-height:1.8}
+footer strong{color:var(--gold);font-weight:normal}
+.bats{font-size:25px;letter-spacing:14px;color:#8d344b;text-align:center;margin:5px 0 18px}
+@media(max-width:520px){main{padding-top:22px}.card{padding:26px 19px}h1{font-size:43px}.subtitle{font-size:15px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <div class="moon" aria-hidden="true"></div>
+  <div class="eyebrow">Uma noite misteriosa está chegando</div>
+  <h1>Baile das <span>Sombras</span></h1>
+  <p class="subtitle">As portas do castelo vão se abrir para celebrar os 10 anos de <strong>Stefan</strong>.<br>Você está convidado para uma noite cheia de mistério e diversão!</p>
+  <div class="divider">✧</div>
+  <div class="bats" aria-hidden="true">🦇　✦　🦇</div>
+</header>
+
+<section class="card">
+  <h2>Confirme sua presença</h2>
+  <p class="intro">Preencha os dados abaixo. Sua confirmação será enviada diretamente pelo WhatsApp.</p>
+  <form id="rsvpForm">
+    <label for="nome">Nome do participante</label>
+    <input id="nome" name="nome" type="text" placeholder="Digite seu nome completo" maxlength="80" required>
+
+    <label for="codigo">Código do convite</label>
+    <input id="codigo" name="codigo" type="text" placeholder="Digite o código que está no convite" maxlength="30" required>
+
+    <label for="acompanhantes">Quantidade de acompanhantes</label>
+    <select id="acompanhantes" name="acompanhantes" required>
+      <option value="" disabled selected>Selecione a quantidade</option>
+      <option value="0">Somente eu</option>
+      <option value="1">1 acompanhante</option>
+      <option value="2">2 acompanhantes</option>
+      <option value="3">3 acompanhantes</option>
+      <option value="4">4 acompanhantes</option>
+      <option value="5">5 acompanhantes</option>
+    </select>
+    <p class="hint">Conte apenas os acompanhantes além do participante. Se não levar ninguém, escolha “Somente eu”.</p>
+
+    <button type="submit">🦇 Enviar confirmação pelo WhatsApp</button>
+  </form>
+  <p class="footnote">Ao clicar, o WhatsApp será aberto com sua mensagem pronta para envio.<br>A confirmação só será concluída depois que você enviar a mensagem.</p>
+</section>
+
+<footer>
+  <div>✦ ✧ ✦</div>
+  Uma celebração digna da noite mais especial do castelo.<br>
+  <strong>Stefan • 10 anos</strong>
+</footer>
+</main>
+<script>
+document.getElementById('rsvpForm').addEventListener('submit', function(event){
+  event.preventDefault();
+  const nome = document.getElementById('nome').value.trim();
+  const codigo = document.getElementById('codigo').value.trim();
+  const acompanhantes = document.getElementById('acompanhantes').value;
+  if(!nome || !codigo || acompanhantes === '') return;
+  const quantidade = Number(acompanhantes);
+  const texto = [
+    '🦇 *CONFIRMAÇÃO DE PRESENÇA — ANIVERSÁRIO DO STEFAN* 🦇',
+    '',
+    '*Nome do participante:* ' + nome,
+    '*Código do convite:* ' + codigo,
+    '*Quantidade de acompanhantes:* ' + (quantidade === 0 ? 'Nenhum' : quantidade),
+    '',
+    'Estou enviando minha confirmação para o Baile das Sombras! 🦇'
+  ].join('\n');
+  const telefone = '5538999733910';
+  const url = 'https://wa.me/' + telefone + '?text=' + encodeURIComponent(texto);
+  window.open(url, '_blank', 'noopener,noreferrer');
+});
+</script>
+</body>
+</html>
